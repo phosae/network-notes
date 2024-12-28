@@ -39,6 +39,8 @@
 25. Kernel will signal that there is data available to apps (epoll or any polling system).
 26. Application wakes up and reads the data.
 
+**struct sk_buff**: This structure represents a network packet and its status within the kernel. It is created when a packet is received or sent and contains the packet data, headers, and metadata.
+
 ### Egress - they're leaving
 1. Application sends a message (`sendmsg` or other).
 2. TCP send message allocates `skb_buff`.
@@ -62,6 +64,12 @@
 20. The driver will handle this IRQ (turn it off).
 21. And schedule (`soft IRQ`) the NAPI poll system.
 22. NAPI will handle the receive packets signaling and free the RAM.
+
+### References to read
+
+- [Linux Kernel Lab on Networking](https://linux-kernel-labs.github.io/refs/heads/master/labs/networking.html)
+- [Netfilter - Wikipedia](https://en.wikipedia.org/wiki/Netfilter)
+- [Linux Network stack by myaut/dtrace-stap-book](https://myaut.github.io/dtrace-stap-book/kernel/net.html)
 
 ## kube-proxy iptables rules
 
